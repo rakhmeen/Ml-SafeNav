@@ -1,0 +1,16 @@
+train: dataset/images/train
+val: dataset/images/val
+test: dataset/images/test
+
+ 
+nc: 7
+
+ 
+names:
+  0: "Containership"
+  1: "Fishing_Vassel"
+  2: "sailboat"
+  3: "cruiseship"
+  4: "dingyboat"
+  5: "tugboat"
+  6: "Yacht"

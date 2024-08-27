@@ -1,0 +1,28 @@
+yolo train model=yolov8n.pt data=dataset.yaml epochs=100 imgsz=640,360
+from ultralytics import YOLO
+
+ 
+#alternative option using python script
+model = YOLO("yolov8n.pt")
+
+# Train the model
+model.train(
+    data="dataset.yaml",   
+    epochs=100,         
+    imgsz=640              
+)
+
+
+evaluate the model
+yolo val model=runs/detect/train/weights/best.pt data=dataset.yaml imgsz=640
+
+
+inference
+# Perform inference with the trained model
+results = model.predict(source="path_to_your_image_or_video", imgsz=640, conf=0.25)
+
+ 
+results.show()
+
+
+ 
