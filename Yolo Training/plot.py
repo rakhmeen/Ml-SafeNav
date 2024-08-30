@@ -2,21 +2,20 @@ import cv2
 import os
 import matplotlib.pyplot as plt
 
-# Define paths
+ 
 image_folder = 'dataset/images/val'
 label_folder = 'dataset/labels/val'
 
-# Loop through each image in the directory
+ 
 for filename in os.listdir(image_folder):
     if filename.endswith('.jpg') or filename.endswith('.png'):  # Adjust this for your image extensions
         image_path = os.path.join(image_folder, filename)
         label_path = os.path.join(label_folder, os.path.splitext(filename)[0] + '.txt')
 
-        # Load the image
+       
         image = cv2.imread(image_path)
         image_height, image_width = image.shape[:2]
-
-        # Read the bounding box data from the corresponding .txt file
+ 
         if os.path.exists(label_path):
             with open(label_path, 'r') as file:
                 lines = file.readlines()
@@ -30,13 +29,12 @@ for filename in os.listdir(image_folder):
                 x_max = int((center_x + width / 2) * image_width)
                 y_max = int((center_y + height / 2) * image_height)
 
-                # Draw the bounding box on the image
+                
                 cv2.rectangle(image, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
 
-            # Convert BGR to RGB (since OpenCV loads images in BGR format)
+           
             image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-            # Display the image with bounding boxes
+ 
             plt.figure(figsize=(8, 8))
             plt.imshow(image_rgb)
             plt.title(f"Image: {filename}")
