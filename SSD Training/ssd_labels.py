@@ -1,11 +1,11 @@
 import json
 import os
 
-# Define image dimensions
+ 
 image_width = 1280
 image_height = 720
 
-# Class mapping based on your provided classes
+ 
 class_map = {
     "Containership": 0,
     "Fishing_Vassel": 1,
@@ -55,11 +55,11 @@ def process_directory(input_dir, output_dir):
                 output_path = os.path.join(folder_output_dir, txt_file)  # Output file retains .txt extension
                 convert_to_ssd_format(input_path, output_path)
 
-# Define input and output directories
+ 
 input_dir = 'dataset/labels'  # Update this with your actual labels directory
 output_dir = 'dataset/ssd_labels'  # Where you want to save the converted labels
 
-# Process the directories
+ 
 process_directory(input_dir, output_dir)
 
 print("Label conversion complete!")
