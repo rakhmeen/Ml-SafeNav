@@ -2,24 +2,23 @@ import os
 import shutil
 from sklearn.model_selection import train_test_split
 
-# Paths
+ 
 source_folder = 'foggy and calm sea'
 image_folder = os.path.join(source_folder, 'images')
 label_folder = os.path.join(source_folder, 'text')
-
-# Destination folders
+ 
 dest_folders = {
     'train': 'train',
     'val': 'val',
     'test': 'test'
 }
 
-# Create destination directories if they don't exist
+ 
 for folder in dest_folders.values():
     os.makedirs(os.path.join(folder, 'images'), exist_ok=True)
     os.makedirs(os.path.join(folder, 'labels'), exist_ok=True)
 
-# Get list of images and corresponding labels
+ 
 images = [f for f in os.listdir(image_folder) if f.endswith('.png')]
 labels = [f.replace('.png', '.txt') for f in images]
  
