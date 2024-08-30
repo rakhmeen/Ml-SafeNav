@@ -48,14 +48,14 @@ def process_labels(label_folder, image_folder, iou_threshold=0.4, area_threshold
                 boxes.append([x_min, y_min, x_max, y_max])
                 scores.append(1.0)  # Assuming all boxes have equal confidence, replace with actual if available
 
-            # Perform NMS
+             
             indices = non_max_suppression(boxes, scores, iou_threshold)
             boxes_after_nms = [boxes[i] for i in indices]
 
-            # Filter small boxes
+           
             filtered_boxes = filter_small_boxes(boxes_after_nms, area_threshold)
 
-            # Overwrite the original label file with the adjusted bounding boxes
+          
             with open(label_path, 'w') as file:
                 for box in filtered_boxes:
                     x_min, y_min, x_max, y_max = box
