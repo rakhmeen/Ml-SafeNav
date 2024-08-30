@@ -35,7 +35,7 @@ def convert_json_to_yolo(json_file, img_width, img_height):
 
         
   
-        # Add other class mappings here
+         
     }
 
     for obj in objects:
@@ -55,13 +55,13 @@ def process_label_files(folder, img_width, img_height):
             json_file = os.path.join(folder, filename)
             yolo_labels = convert_json_to_yolo(json_file, img_width, img_height)
             
-            # Replace existing label file with YOLO format labels
+          
             yolo_file = os.path.join(folder, filename.replace(".json", ".txt"))
             with open(yolo_file, 'w') as f:
                 for label in yolo_labels:
                     f.write(label + '\n')
 
-# Example usage
+ 
 dataset_folder = 'dataset/labels/val'
 image_width = 1280
 image_height = 720
